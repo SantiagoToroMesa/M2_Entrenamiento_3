@@ -23,6 +23,9 @@ header{
     margin-bottom: 20%;
     padding: 0 2rem;
 }
+html, body{
+    scroll-behavior: smooth;
+}
 nav a{
     font-size: 1.6rem;
     color: whitesmoke;
