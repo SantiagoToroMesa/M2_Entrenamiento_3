@@ -15,12 +15,13 @@ header{
     width: 100%;
     height: 12vh;
     background-color: rgba(0, 0, 0, 0.5);
-    filter: drop-shadow(20px);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
     margin-bottom: 20%;
+    padding: 0 2rem;
 }
 nav a{
     font-size: 1.6rem;
@@ -36,27 +37,27 @@ nav a{
     font-weight: bold;
     color: #b86f2cfb;
     margin-right: 15px;
-
 }
 .hero{
-    height: 1000px;
+    min-height: 100vh;
     background-color: black;
-    padding: 0;
+    padding: 0 2rem;
     display: flex;
     justify-content: start;
     gap: 8rem;
     align-items: center;
-    background-image: url(./assets/coffee.jpeg);
+    background-image: url(assets/img/coffee.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 .hero-content{
-    box-shadow: 40%;
     margin-left: 40px;
     color: rgb(219, 219, 219);
+    max-width: 800px;
 }
 .hero .hero-content h1{
-    width: 20px;
+    width: auto;
     font-size: 6em;
     font-weight: bold;
     line-height: 1.3;
@@ -67,9 +68,7 @@ nav a{
 }
 .img-cafe{
     max-width: 100%;
-    max-height: 100%;
     height: auto;
-    width: auto;
 }
 span{
     color: #b86f2cfb;
@@ -77,4 +76,158 @@ span{
 .logo-image{
     width: 90px;
     margin-left: 50px;
+}
+.section-title{
+    text-align: center;
+    font-size: 4rem;
+    margin: 2rem 0;
+    color: #b86f2cfb;
+    font-weight: bold;
+}
+.section-description{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+/* Products Section */
+.products {
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background-color: #f5f5f5;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.product:hover .product-overlay {
+    transform: translateY(0);
+}
+
+.product-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #b86f2cfb;
+}
+
+.product-overlay p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Media Queries for Laptop Screens */
+@media screen and (max-width: 1366px) {
+    nav a {
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+
+    .Logo {
+        font-size: 2.2rem;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 4em;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .logo-image {
+        width: 70px;
+        margin-left: 20px;
+    }
+
+    .products {
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .product img {
+        height: 250px;
+    }
+
+    .product-overlay h3 {
+        font-size: 1.3rem;
+    }
+
+    .product-overlay p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    nav a {
+        font-size: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .Logo {
+        font-size: 2rem;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 3.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content {
+        margin-left: 20px;
+    }
+
+    .logo-image {
+        width: 60px;
+        margin-left: 15px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .product img {
+        height: 220px;
+    }
+
+    .product-overlay h3 {
+        font-size: 1.2rem;
+    }
+
+    .product-overlay p {
+        font-size: 0.85rem;
+    }
 }
