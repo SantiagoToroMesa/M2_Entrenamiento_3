@@ -568,47 +568,82 @@ span{
     }
 }
 
+/* Hamburger menu - hidden by default */
+.hamburger {
+    display: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
 /* Móviles (480px)*/
 @media screen and (max-width: 480px) {
     header {
-        flex-direction: row;
-        height: auto;
-        padding: 0.5rem;
-        justify-content: space-between;
-        align-items: center;
+        padding: 1rem;
+        height: 10vh;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        top: 0;
+        left: -100%;
         width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        padding: 0.5rem;
-        background-color: rgba(0, 0, 0, 0.8);
-        gap: 0.5rem;
+        justify-content: center;
+        transition: 0.5s ease-in-out;
+        z-index: 999;
+    }
+
+    nav.active {
+        left: 0;
     }
 
     nav a {
-        font-size: 1rem;
-        margin: 0;
-        padding: 0.4rem 1rem;
-        background-color: rgba(184, 111, 44, 0.2);
-        border-radius: 15px;
+        display: block;
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        padding: 0.5rem 1.5rem;
+        width: auto;
+        text-align: center;
+        color: white;
     }
 
     .Logo {
         font-size: 1.5rem;
-        margin: 0;
+        z-index: 1000;
     }
 
     .logo-image {
         width: 45px;
-        margin: 0 10px;
+        z-index: 1000;
     }
 
     .hero {
